@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* Use var for colors and font sizes.*/
+:root {
+  --footer-bg-light: #f5f5f7;
+  --footer-bg-dark: #1c1c1e;
+  --text-light: #000;
+  --text-dark: #f5f5f5;
+  --font: 'Open Sans', sans-serif;
+}
+
+.navBar, .navBar button, .navBar a, .navBar span {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  color: #333333 !important;
+}
+
+.navBarContainer {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1005;
+  top: 0;
+  left: 0;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.8em 6em 0.25em 6em;
+  padding: 8px 25px;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  width: calc(100% - 12em);
+  pointer-events: auto;
+}
+
+.navBrand {
+  display: flex;
+  align-items: center;
+}
+
+.navBrand img {
+  height: 30px !important;
+  width: auto;
+}
+
+.menuToggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1100;
+  pointer-events: auto;
+}
+
+.navMenu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin-left: 50px;
+}
+
+.navItems {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+}
+
+.navAuth {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+}
+
+/* Navigation links */
+.navLink {
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: color 0.2s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: #007bff !important;
+}
+
+/* Login button styling */
+.loginButton {
+  background: #D9D9D9;
+  border: none;
+  cursor: pointer;
+  padding: 6px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  text-align: center;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1.5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.loginButton:hover {
+  background: #2668c3;
+}
+
+.loginButton:active {
+  background: #1e56a0;
+}
+
+/* User profile container (when logged in) */
+.loggedInContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #f0f0f0;
+  border-radius: 20px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.loggedInInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.userPhoto {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 28px;
+  height: 28px;
+}
+
+.logoutButton {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Navbar spacing */
+.navSpace {
+  padding: 20px 0;
+  height: 60px;
+}
+
+/* Mobile view adjustments */
+@media only screen and (max-width: 900px) {
+  .navLink {
+    font-size: 12px !important;
+  }
+}
+
+@media only screen and (max-width: 885px) {
+  .navBar {
+    width: calc(100% - 8em);
+    margin: 0 4em 0.25em 4em;
+    border-radius: 0px 0px 25px 25px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .menuToggle {
+    display: block;
+  }
+  
+  .navBar {
+    width: calc(100% - 2em);
+    margin: 0 1em 0.25em 1em;
+    padding: 8px 15px;
+    justify-content: space-between;
+  }
+  
+  .navMenu {
+    position: fixed;
+    flex-direction: column;
+    justify-content: flex-start;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    margin: 0;
+    padding: 60px 20px 20px;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  
+  .navMenu.active {
+    right: 0;
+  }
+  
+  .navItems {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .navItem {
+    width: 100%;
+    margin: 8px 0;
+  }
+  
+  .navAuth {
+    margin: 20px 0 0 0;
+    width: 100%;
+  }
+  
+  .loggedInContainer {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  .loginButton {
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+  }
+}

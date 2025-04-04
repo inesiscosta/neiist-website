@@ -1,6 +1,8 @@
 import { ReactNode } from 'react'
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
+import NavBar from '../components/Navbar';
 import { Metadata } from 'next'
+import { UserDataProvider } from '../context/UserDataContext';
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
@@ -12,8 +14,11 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <main>{children}</main>
-        <Footer />
+        <UserDataProvider>
+          <NavBar />
+            <main>{children}</main>
+          <Footer />
+        </UserDataProvider>
       </body>
     </html>
   )
