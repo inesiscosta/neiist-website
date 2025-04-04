@@ -10,7 +10,44 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // Existing compat config
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+
+  // Custom config for validate-filename
+  {
+   plugins: {
+    "validate-filename": await import("eslint-plugin-validate-filename"),
+    },
+
+    rules: {
+      "validate-filename/naming-rules": [
+        "error",
+        {
+          rules: [
+            {
+              case: "pascal",
+              target: "**/components/**",
+            },
+            {
+              case: "kebab",
+              target: "**/app/**",
+              patterns: "^(page|layout|loading|error|not-found|route|template).tsx$",
+            },
+            {
+              case: "camel",
+              target: "**/hooks/**",
+              patterns: "^use",
+            },
+            {
+              case: "camel",
+              target: "**/providers/**",
+              patterns: "^[a-zA-Z]*Provider",
+            },
+          ],
+        },
+      ],
+    },
+  },
 ];
 
 export default eslintConfig;

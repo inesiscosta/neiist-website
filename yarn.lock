@@ -1171,6 +1171,14 @@ eslint-plugin-react@^7.37.0:
     string.prototype.matchall "^4.0.12"
     string.prototype.repeat "^1.0.0"
 
+eslint-plugin-validate-filename@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-validate-filename/-/eslint-plugin-validate-filename-1.0.0.tgz#b6731f2fd32cc76d09cb203da5818bc7b53b90e1"
+  integrity sha512-ufA6gzfxNTSP7YH6PTteUqKEbAdAVrCCrUFtYsqRkr2Ny4yP6rVpay51tE0JTXTGnZyx7u4QhjvEdZGUdsnyvA==
+  dependencies:
+    micromatch "^4.0.5"
+    typescript "^5.3.3"
+
 eslint-scope@^8.3.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-8.3.0.tgz#10cd3a918ffdd722f5f3f7b5b83db9b23c87340d"
@@ -1834,7 +1842,7 @@ merge2@^1.3.0:
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.4.1.tgz#4368892f885e907455a6fd7dc55c0c9d404990ae"
   integrity sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==
 
-micromatch@^4.0.4, micromatch@^4.0.8:
+micromatch@^4.0.4, micromatch@^4.0.5, micromatch@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.8.tgz#d66fa18f3a47076789320b9b1af32bd86d9fa202"
   integrity sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==
@@ -2524,7 +2532,7 @@ typed-array-length@^1.0.7:
     possible-typed-array-names "^1.0.0"
     reflect.getprototypeof "^1.0.6"
 
-typescript@^5:
+typescript@^5, typescript@^5.3.3:
   version "5.8.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.2.tgz#8170b3702f74b79db2e5a96207c15e65807999e4"
   integrity sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==

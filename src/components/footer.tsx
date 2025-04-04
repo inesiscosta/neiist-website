@@ -1,95 +1,103 @@
-import React from 'react';
-import style from './css/Footer.module.css';
-import { FaFacebook, FaInstagram, FaLinkedin, FaLink, FaEnvelope, FaGithub } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaLinkedin, FaEnvelope, FaGithub } from "react-icons/fa";
+import { SiLinktree } from "react-icons/si";
+import styles from "./css/Footer.module.css";
+import Image from "next/image";
 
-const Footer = () => (
-  <footer>
-    <SocialIcons />
-    <Links />
-  </footer>
-);
-
-const SocialIcons = () => {
-  const socialLinks = [
-    { href: "https://facebook.com/NEIIST", icon: <FaFacebook size={35} /> },
-    { href: "https://instagram.com/NEIIST", icon: <FaInstagram size={35} /> },
-    { href: "https://www.linkedin.com/company/neiist/", icon: <FaLinkedin size={35} /> },
-    { href: "https://linktr.ee/NEIIST", icon: <FaLink size={35} /> },
-    { href: "mailto:neiist@tecnico.ulisboa.pt", icon: <FaEnvelope size={35} /> },
-    { href: "https://github.com/neiist-dev/neiist-website", icon: <FaGithub size={35} /> },
-  ];
-
+export default function Footer() {
   return (
-    <div className={style.links}>
-      <div className={style.linkIconSpace}>
-        {socialLinks.map((link, index) => (
-          <div key={index}>
-            <a href={link.href} target="_blank" rel="noopener noreferrer">
-              {link.icon}
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+        <div className={styles.footerContent}>
+          {/* About NEIIST */}
+          <div className={styles.section}>
+            <h6>NEIIST</h6>
+            <p>
+              Use rows and columns to organize your footer content. Lorem ipsum
+              dolor sit amet, consectetur adipisicing elit.
+            </p>
+          </div>
+
+          {/* Site Pages */}
+            <div className={styles.section}>
+            <h6>Sobre o Núcleo</h6>
+            <ul>
+              <li><a href="/equipa">Equipa</a></li>
+              <li><a href="/estudante">Estudante</a></li>
+              <li><a href="/estatutos.pdf" target="_blank" rel="noopener noreferrer">Estatutos</a></li>
+            </ul>
+            </div>
+
+          {/* Useful Links */}
+          <div className={styles.section}>
+            <h6>Useful Links</h6>
+            <ul>
+              <li>
+                <a href="https://fenix.tecnico.ulisboa.pt/cursos/leic-a" target="_blank" rel="noopener noreferrer">
+                  LEIC-A
+                </a> / 
+                <a href="https://fenix.tecnico.ulisboa.pt/cursos/leic-t" target="_blank" rel="noopener noreferrer">
+                  LEIC-T
+                </a>
+              </li>
+              <li>
+                <a href="https://fenix.tecnico.ulisboa.pt/cursos/meic-a" target="_blank" rel="noopener noreferrer">
+                  MEIC-A
+                </a> / 
+                <a href="https://fenix.tecnico.ulisboa.pt/cursos/meic-t" target="_blank" rel="noopener noreferrer">
+                  MEIC-T
+                </a>
+              </li>
+              <li>
+                <a href="https://fenix.tecnico.ulisboa.pt/cursos/deic" target="_blank" rel="noopener noreferrer">
+                  DEIC
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div className={styles.section}>
+            <h6>Contact</h6>
+            <p>📍 New York, NY 10012, US</p>
+            <p>📧 neiist@tecnico.ulisboa.pt</p>
+            <p>📞 +01 234 567 88</p>
+          </div>
+
+          {/* Powered By */}
+          <div className={styles.section}>
+            <h6>Powered by:</h6>
+            <a href="https://dei.tecnico.ulisboa.pt" target="_blank" rel="noopener noreferrer" style={{ paddingLeft: "10px" }}>
+              <Image src="/dei.svg" alt="DEI Logo" className={styles.deiLogo} width={200} height={100} />
             </a>
           </div>
-        ))}
+        </div>
+
+        {/* Footer Bottom */}
+        <div className={styles.footerBottom}>
+          <p>© 2025 NEIIST. All rights reserved.</p>
+          {/* Social Icons */}
+          <div className={styles.socialIcons}>
+            <a href="https://facebook.com/NEIIST" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <FaFacebookF />
+            </a>
+            <a href="https://instagram.com/NEIIST" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <FaInstagram />
+            </a>
+            <a href="https://www.linkedin.com/company/neiist/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <FaLinkedin />
+            </a>
+            <a href="https://linktr.ee/NEIIST" target="_blank" rel="noopener noreferrer" aria-label="Linktree">
+              <SiLinktree />
+            </a>
+            <a href="mailto:neiist@tecnico.ulisboa.pt" target="_blank" rel="noopener noreferrer" aria-label="Email">
+              <FaEnvelope />
+            </a>
+            <a href="https://github.com/neiist-dev/neiist-website" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <FaGithub />
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
+    </footer>
   );
-};
-
-const FooterSection = ({ title, links }: { title: string; links: { href: string; label: string; external?: boolean }[] }) => (
-  <div className={style.footerChildSpace}>
-    <h6>{title}</h6>
-    <hr />
-    {links.map((link, index) => (
-      <div key={index}>
-        <a href={link.href}  target={link.external ? "_blank" : "_self"} rel={link.external ? "noopener noreferrer" : undefined}>
-          <p>{link.label}</p>
-        </a>
-      </div>
-    ))}
-  </div>
-);
-
-const PoweredBy = () => (
-  <div className={style.footerChildSpaceImg}>
-    <h6>Powered By</h6>
-    <hr />
-    <a href="https://dei.tecnico.ulisboa.pt/" target="_blank" rel="noopener noreferrer">
-      <div style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/DEI.png)` }} />
-    </a>
-  </div>
-);
-
-
-const Links = () => (
-  <div className={style.footer}>
-    <div className={style.footerSpace}>
-      <FooterSection
-        title="Sobre o Núcleo"
-        links={[
-          { href: "/sobre_nos", label: "Quem Somos?" },
-          { href: "/contactos", label: "Contactos" },
-          { href: "/estatutos", label: "Estatutos" },
-        ]}
-      />
-      <FooterSection
-        title="Cursos de EIC"
-        links={[
-          { href: "https://fenix.tecnico.ulisboa.pt/cursos/leic-a", label: "LEIC-A", external: true },
-          { href: "https://fenix.tecnico.ulisboa.pt/cursos/leic-t", label: "LEIC-T", external: true },
-          { href: "https://fenix.tecnico.ulisboa.pt/cursos/meic-a", label: "MEIC-A", external: true },
-          { href: "https://fenix.tecnico.ulisboa.pt/cursos/meic-t", label: "MEIC-T", external: true },
-          { href: "https://fenix.tecnico.ulisboa.pt/cursos/deic", label: "DEIC", external: true },
-        ]}
-      />
-      <FooterSection
-        title="Mais Informações"
-        links={[
-          { href: "/estudantes", label: "Estudantes" },
-          { href: "https://sinfo.org", label: "SINFO 32", external: true },
-        ]}
-      />
-      <PoweredBy />
-    </div>
-  </div>
-);
-
-export default Footer;
+}
