@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import Footer from '../components/Footer';
-import NavBar from '../components/Navbar';
+import NavBar from '../components/NavBar/NavBar';
 import { Metadata } from 'next'
 import { UserDataProvider } from '../context/UserDataContext';
 import "../styles/globals.css";
