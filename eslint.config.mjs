@@ -43,6 +43,11 @@ const eslintConfig = [
               target: "**/providers/**",
               patterns: "^[a-zA-Z]*Provider",
             },
+            {
+              case: "bracket",
+              target: "**/app/api/**",
+              patterns: "^(\\[.*\\]|\\[\\.\\.\\.\\w+\\])/route\\.ts$",
+            },
           ],
         },
       ],

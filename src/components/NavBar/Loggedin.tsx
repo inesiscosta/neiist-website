@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { GoSignOut } from "react-icons/go";
 import NavLinks from "./NavLinks";
-import { summarizeName, fenixPhoto, statusToString, statusToColor } from "../../utils/dataTreatment";
+import { summarizeName, statusToString, statusToColor } from "../../utils/dataTreatment";
 import style from "../css/NavBar.module.css";
 
 interface UserData {
   username: string;
   displayName: string;
   status?: string;
+  photoUrl?: string;
 }
 
 interface LoggedInProps {
@@ -18,7 +19,7 @@ interface LoggedInProps {
 
 const LoggedIn: React.FC<LoggedInProps> = ({ userData, logout }) => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
-
+  
   return (
     <div
       className={style.loggedInContainer}
@@ -27,11 +28,12 @@ const LoggedIn: React.FC<LoggedInProps> = ({ userData, logout }) => {
     >
       <div className={style.loggedInInfo}>
         <Image
-          src={fenixPhoto(userData.username)}
+          src={userData.photoUrl || "/DEI.svg"}
           alt="User Photo"
           width={40}
           height={40}
           className={style.userPhoto}
+          unoptimized
         />
         <div className={style.userDetails}>
           <span className={style.userName}>{summarizeName(userData.displayName)}</span>

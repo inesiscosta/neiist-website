@@ -8,9 +8,6 @@ const statusColor: Record<string, string> = {
 
 export const statusToColor = (status: string): string => statusColor[status] || "#000";
 
-export const fenixPhoto = (username: string): string =>
-  `https://fenix.tecnico.ulisboa.pt/user/photo/${username}?s=10000`;
-
 export const summarizeName = (name: string): string => {
   const names = name.split(" ");
   return `${names[0]} ${names[names.length - 1]}`;
