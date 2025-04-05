@@ -14,7 +14,7 @@ interface UserData {
 
 interface LoggedInProps {
   userData: UserData;
-  logout: () => void;
+  logout?: () => void;
 }
 
 const LoggedIn: React.FC<LoggedInProps> = ({ userData, logout }) => {

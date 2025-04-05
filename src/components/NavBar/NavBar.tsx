@@ -11,7 +11,7 @@ import style from "../css/NavBar.module.css";
 const NavBar: React.FC = () => {
   const { userData, login, logout } = useContext(UserDataContext) || {};
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
