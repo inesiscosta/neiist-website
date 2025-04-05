@@ -4,11 +4,11 @@ export async function GET(
   request: NextRequest,
   { params }: { params: { accessToken: string } }
 ) {
-  const { accessToken } = params;
+  const { accessToken } = await params;
 
   try {
     const personInformation = await getPersonInformation(accessToken);
-
+    const photo = validatePhoto("data:image/png;base64," + personInformation.photo.data) ? ("data:image/png;base64," + personInformation.photo.data) : "/default_user.png";;
     // Process user data
     const userData = {
       username: personInformation.username,
@@ -16,13 +16,14 @@ export async function GET(
       email: personInformation.email,
       courses: personInformation.courses,
       isActiveTecnicoStudent: personInformation.roles.includes('STUDENT'),
-      isAdmin: personInformation.roles.includes('ADMIN'),
-      isGacMember: personInformation.roles.includes('GAC'),
+      campus: personInformation.campus,
+      photo: photo
     };
 
     return NextResponse.json(userData);
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 401 });
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+    return NextResponse.json({ error: errorMessage }, { status: 401 });
   }
 }
 
@@ -42,4 +43,26 @@ async function getPersonInformation(accessToken: string) {
   }
 
   return response.json();
+}
+
+function validatePhoto(base64: string): boolean {
+  // Regex to check if the base64 string is a valid image format (PNG, JPEG, JPG)
+  const base64Regex = /^data:image\/(png|jpeg|jpg);base64,[A-Za-z0-9+/=]+$/;
+  
+  // Check if the base64 string matches the pattern
+  if (!base64Regex.test(base64)) {
+    return false;
+  }
+  
+  // Remove the data URL prefix (e.g., "data:image/png;base64,")
+  const base64Data = base64.split(',')[1];
+  
+  // Convert the base64 string to its byte length
+  const byteLength = (base64Data.length * 3) / 4 - (base64Data.endsWith('==') ? 2 : base64Data.endsWith('=') ? 1 : 0);
+  
+  // Set the size limit (3MB)
+  const maxSizeInBytes = 3 * 1024 * 1024; // 3MB
+
+  // Check if the size exceeds the maximum limit
+  return byteLength <= maxSizeInBytes;
 }

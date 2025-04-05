@@ -9,7 +9,7 @@ interface UserData {
   username: string;
   displayName: string;
   status?: string;
-  photoUrl?: string;
+  photo: string;
 }
 
 interface LoggedInProps {
@@ -28,12 +28,11 @@ const LoggedIn: React.FC<LoggedInProps> = ({ userData, logout }) => {
     >
       <div className={style.loggedInInfo}>
         <Image
-          src={userData.photoUrl || "/DEI.svg"}
+          src={userData.photo}
           alt="User Photo"
           width={40}
           height={40}
           className={style.userPhoto}
-          unoptimized
         />
         <div className={style.userDetails}>
           <span className={style.userName}>{summarizeName(userData.displayName)}</span>

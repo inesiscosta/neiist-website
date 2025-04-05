@@ -29,6 +29,10 @@ const eslintConfig = [
               target: "**/components/**",
             },
             {
+              case: "camel",
+              target: "**/app/api/**",
+            },
+            {
               case: "kebab",
               target: "**/app/**",
               patterns: "^(page|layout|loading|error|not-found|route|template).tsx$",
@@ -42,11 +46,6 @@ const eslintConfig = [
               case: "camel",
               target: "**/providers/**",
               patterns: "^[a-zA-Z]*Provider",
-            },
-            {
-              case: "bracket",
-              target: "**/app/api/**",
-              patterns: "^(\\[.*\\]|\\[\\.\\.\\.\\w+\\])/route\\.ts$",
             },
           ],
         },
