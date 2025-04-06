@@ -27,8 +27,8 @@ const NavLinks: React.FC = () => {
 
   return (
     <>
-      <NavLink hide={false} href="/socio" condition={!!userData?.isAdmin || !!userData?.isActiveTecnicoStudent}>
-        Sócios
+      <NavLink hide={false} href="/user" condition={!!userData?.isAdmin || !!userData?.isActiveTecnicoStudent}>
+        Perfil
       </NavLink>
       <NavLink hide={false} href="/collab" condition={!!userData?.isAdmin || !!userData?.isCollab}>
         Colaborador(a)

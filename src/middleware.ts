@@ -13,5 +13,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/socio', '/thesismaster', '/admin', '/collab', '/mag']
+  matcher: ['/user', '/thesismaster', '/admin', '/collab', '/mag']
 };

@@ -27,7 +27,7 @@ export async function GET() {
       displayName: userInformation.displayName,
       email: userInformation.email,
       courses: userInformation.courses,
-      isActiveTecnicoStudent: userInformation.roles.includes('STUDENT'),
+      isActiveTecnicoStudent: userInformation.roles.some((role: { type: string}) => role.type === 'STUDENT'),
       photo: userPhoto,
     };
     return NextResponse.json(userData);
@@ -40,7 +40,7 @@ export async function GET() {
 function validatePhoto(base64: string): boolean {
   // Check if the base64 string is a valid image format (PNG, JPEG, JPG)
   const base64Regex = /^data:image\/(png|jpeg|jpg);base64,[A-Za-z0-9+/=]+$/;
-  
+
   if (!base64Regex.test(base64)) {
     return false;
   }
