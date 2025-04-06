@@ -5,7 +5,8 @@ export function middleware(req: NextRequest) {
   const token = req.cookies.get('accessToken');
 
   if (!token) {
-    return NextResponse.redirect(new URL('/', req.url));
+    const loginUrl = new URL('/api/auth/login', req.nextUrl.origin); // Redirect to login
+    return NextResponse.redirect(loginUrl);
   }
 
   return NextResponse.next();
