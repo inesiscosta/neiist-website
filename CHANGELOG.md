@@ -1,5 +1,12 @@
 # neiist
 
+## [1.6.2](https://github.com/inesiscosta/neiist-website/compare/v1.6.1...v1.6.2) (2026-04-10)
+
+
+### Bug Fixes
+
+* bootstrap current version release please ([103c9b6](https://github.com/inesiscosta/neiist-website/commit/103c9b64cf803b2b20d51b16f34508602613e553))
+
 ## 1.6.1
 
 ### Patch Changes
