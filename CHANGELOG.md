@@ -222,4 +222,4 @@
 
 ### Minor Changes
 
-- Add and configurate the `changeset` package to automate changelog and version management.
+- Add and configure the `changeset` package to automate changelog and version management.
