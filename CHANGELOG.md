@@ -1,5 +1,12 @@
 # neiist
 
+## [1.6.3](https://github.com/inesiscosta/neiist-website/compare/v1.6.2...v1.6.3) (2026-04-13)
+
+
+### Bug Fixes
+
+* empty example file ([2ee53aa](https://github.com/inesiscosta/neiist-website/commit/2ee53aa1457943400765f74562555c50891719e5))
+
 ## [1.6.2](https://github.com/inesiscosta/neiist-website/compare/v1.6.1...v1.6.2) (2026-04-10)
 
 
